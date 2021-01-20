@@ -1,11 +1,13 @@
 import "./App.scss";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className='App'>
-      <CssBaseline />
-      <h1>Hello World</h1>
+      <Switch>
+        <Route exact path='/' component={Home} />
+      </Switch>
     </div>
   );
 }

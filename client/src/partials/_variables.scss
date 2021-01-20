@@ -1,6 +1,8 @@
 $color: (global-black: #13182C,
     global-white: #FFFFFF,
-    global-gray: #f3f6f8,
+    global-grey: #f3f6f8,
+    app-bg: #4AB3A3,
+    button-color: #E27D60,
     input-borders: rgb(0 0 0 / 12%));
 
 @function color($color-name) {
