@@ -48,7 +48,7 @@ function Home({
   return (
     <div className='homepage'>
       <div className='homepage-main'>
-        {uploadSuccess && (
+        {!ocrSuccess && uploadSuccess && (
           <div className='homepage-main-dropzone'>
             <img
               src={uploadFileUrl}
@@ -57,7 +57,7 @@ function Home({
             />
           </div>
         )}
-        {!uploadSuccess && (
+        {!ocrSuccess && !uploadSuccess && (
           <div
             {...getRootProps({ className: "dropzone" })}
             className='homepage-main-dropzone'>
@@ -89,14 +89,15 @@ function Home({
             </Typography>
           </div>
         )}
-        <div className='homepage-main-steps'>
-          <div className='homepage-main-steps-tree'>
-            <Typography
-              variant='h4'
-              className='homepage-main-steps-tree__title'>
-              Extract code in 2 simple steps!
-            </Typography>
-            {/*<Typography
+        {!ocrSuccess && (
+          <div className='homepage-main-steps'>
+            <div className='homepage-main-steps-tree'>
+              <Typography
+                variant='h4'
+                className='homepage-main-steps-tree__title'>
+                Extract code in 2 simple steps!
+              </Typography>
+              {/*<Typography
               variant='body1'
               className='homepage-main-steps-tree__description'>
               While doing whiteboarding challenge, or just brainstorming, you
@@ -105,7 +106,7 @@ function Home({
               wrote by hand is redundant and developers DRY!
             </Typography>*/}
 
-            {/*<Typography
+              {/*<Typography
               variant='body1'
               className='homepage-main-steps-tree__description'>
               So we have created this app. As soon as you upload the photo,
@@ -113,40 +114,41 @@ function Home({
               codepen so you can edit and run the code. In future we will add
               more language support, but for now, we only support javascript.
             </Typography> */}
-            <ul className='homepage-main-steps-tree__list-items'>
-              <li className='homepage-main-steps-tree__list-item'>
-                <span className='homepage-main-steps-tree__list-item-icon'>
-                  <img
-                    src={UploadSmallIcon}
-                    alt='upload'
-                    className='homepage-main-steps-tree__list-item-icon-image'
-                  />
-                </span>{" "}
-                <Typography variant='body1'>Upload photo</Typography>
-              </li>
-              <li className='homepage-main-steps-tree__list-item'>
-                <span className='homepage-main-steps-tree__list-item-icon'>
-                  <img
-                    src={CodeIcon}
-                    alt='code'
-                    className='homepage-main-steps-tree__list-item-icon-image'
-                  />
-                </span>
-                <Typography variant='body1'>
-                  Extract code from photo by hitting the button below
-                </Typography>
-              </li>
-            </ul>
+              <ul className='homepage-main-steps-tree__list-items'>
+                <li className='homepage-main-steps-tree__list-item'>
+                  <span className='homepage-main-steps-tree__list-item-icon'>
+                    <img
+                      src={UploadSmallIcon}
+                      alt='upload'
+                      className='homepage-main-steps-tree__list-item-icon-image'
+                    />
+                  </span>{" "}
+                  <Typography variant='body1'>Upload photo</Typography>
+                </li>
+                <li className='homepage-main-steps-tree__list-item'>
+                  <span className='homepage-main-steps-tree__list-item-icon'>
+                    <img
+                      src={CodeIcon}
+                      alt='code'
+                      className='homepage-main-steps-tree__list-item-icon-image'
+                    />
+                  </span>
+                  <Typography variant='body1'>
+                    Extract code from photo by hitting the button below
+                  </Typography>
+                </li>
+              </ul>
+            </div>
+            <Button
+              variant='contained'
+              color='primary'
+              className='homepage-main-steps-button'
+              disableElevation
+              onClick={() => handleSubmit(uploadFileUrl)}>
+              Generate Code
+            </Button>
           </div>
-          <Button
-            variant='contained'
-            color='primary'
-            className='homepage-main-steps-button'
-            disableElevation
-            onClick={() => handleSubmit(uploadFileUrl)}>
-            Generate Code
-          </Button>
-        </div>
+        )}
         {ocrSuccess && (
           <div
             className='codepen'

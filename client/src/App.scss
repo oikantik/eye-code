@@ -1,2 +1,7 @@
 @use './partials/mixins'as *;
 @use './partials/variables'as *;
+
+// codepen embed
+.cp_embed_wrapper {
+  width: 100% !important;
+}
