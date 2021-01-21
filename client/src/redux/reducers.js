@@ -14,6 +14,11 @@ const initialState = {
     error: false,
     text: "",
   },
+  heroku: {
+    loading: false,
+    success: false,
+    error: false,
+  },
 };
 
 const getOcr = (state = initialState, action) => {
@@ -78,6 +83,38 @@ const getOcr = (state = initialState, action) => {
         ...state,
         upload: {
           ...state.ocr,
+          loading: false,
+          success: false,
+          error: true,
+        },
+      };
+
+    case types.WAKE_UP_HEROKU:
+      return {
+        ...state,
+        heroku: {
+          ...state.heroku,
+          loading: true,
+          success: false,
+          error: false,
+        },
+      };
+    case types.WAKE_UP_HEROKU_SUCCESS:
+      return {
+        ...state,
+        heroku: {
+          ...state.heroku,
+          loading: false,
+          success: true,
+          error: false,
+        },
+      };
+
+    case types.WAKE_UP_HEROKU_FAILURE:
+      return {
+        ...state,
+        heroku: {
+          ...state.heroku,
           loading: false,
           success: false,
           error: true,

@@ -13,3 +13,9 @@ export const ocr = (payload) => {
     payload,
   };
 };
+
+export const heroku = () => {
+  return {
+    type: types.WAKE_UP_HEROKU,
+  };
+};

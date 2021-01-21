@@ -1,0 +1,88 @@
+@use '../../../../partials/mixins'as *;
+@use '../../../../partials/variables'as *;
+
+
+.homepage-main-steps {
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
+  align-self: center;
+
+  @include tablet {
+    padding-top: 0rem;
+    padding-left: 2rem;
+    flex: 0 0 50%;
+  }
+}
+
+.homepage-main-steps-tree {
+
+  &__title {
+    font-weight: 800 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  &__description {
+    margin-bottom: 1rem !important;
+  }
+
+  &__list-items {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__list-item-icon {
+    height: 60px;
+    width: 60px;
+    flex: 0 0 60px;
+    background-color: color(app-bg);
+    border-radius: 20px;
+    margin-right: 1rem;
+  }
+
+  &__list-item-icon-image {
+    width: 100%;
+    object-fit: cover;
+    padding: 1rem;
+  }
+}
+
+.homepage-main-steps-button-container {
+  display: flex;
+  align-items: center;
+
+  &__button {
+
+    width: 220px;
+    background-color: color(button-color) !important;
+    margin: 0 auto;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &>span {
+      text-transform: capitalize;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+    }
+
+    &:disabled {
+      background-color: color(global-grey) !important;
+      cursor: not-allowed !important;
+    }
+  }
+
+  &__reload {
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+}
