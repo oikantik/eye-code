@@ -17,7 +17,7 @@ function Codepen({ ocrText }) {
           scripts: [],
           stylesheets: ["https://unpkg.com/normalize.css@8.0.1/normalize.css"],
         })}
-        data-height='600'
+        data-height='400'
         data-default-tab='js,result'>
         <pre data-lang='html'>
           {`<div className='module'><h3>Hey there</h3><p>This is just some placeholder html</p>`}
