@@ -5,4 +5,9 @@
 .cp_embed_wrapper {
   width: 100% !important;
   align-self: center;
+  z-index: 9999;
+}
+
+.backdrop {
+  z-index: 9999 !important;
 }

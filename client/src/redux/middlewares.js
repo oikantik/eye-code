@@ -21,3 +21,10 @@ export const ocr = async (payload) => {
     ...response.data,
   };
 };
+
+export const heroku = async () => {
+  const response = await axiosInstance.get("/");
+  return {
+    ...response.data,
+  };
+};

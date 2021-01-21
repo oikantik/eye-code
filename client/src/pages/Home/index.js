@@ -1,7 +1,7 @@
 import Home from "./Home";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { upload, ocr } from "../../redux/actions";
+import { upload, ocr, heroku } from "../../redux/actions";
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -11,6 +11,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleUpload: (file) => {
       dispatch(upload(file));
+    },
+    handleHeroku: () => {
+      dispatch(heroku());
     },
   };
 };
@@ -23,6 +26,8 @@ const mapStateToProps = (state) => {
     ocrSuccess: state.getOcr.ocr.success,
     ocrText: state.getOcr.ocr.text,
     uploadFileUrl: state.getOcr.upload.file_url,
+    herokuSuccess: state.getOcr.heroku.success,
+    herokuLoading: state.getOcr.heroku.loading,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Home));
