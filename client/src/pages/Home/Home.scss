@@ -19,12 +19,17 @@
 }
 
 .homepage {
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   //align-items: center;
   justify-content: center;
   position: relative;
+  padding-bottom: 2rem;
+
+  @include tablet {
+    height: 100vh;
+  }
 }
 
 .homepage-main {

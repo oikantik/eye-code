@@ -5,11 +5,22 @@ import CloudUploadOutlinedIcon from "../../../../assets/icons/upload.svg";
 import PropTypes from "prop-types";
 import "./Upload.scss";
 
+import { ToastContainer, toast } from "react-toastify";
+
 function Upload({ handleUpload, ocrSuccess, uploadLoading }) {
   const onDrop = useCallback(
     (acceptedFiles, rejectedFiles) => {
       if (rejectedFiles.length === 0) handleUpload(acceptedFiles);
-      if (rejectedFiles.length > 0) console.log("File too large or is invalid");
+      if (rejectedFiles.length > 0)
+        toast.error("File upload failed, maximum size allowed is 1MB", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
     },
     [handleUpload]
   );
@@ -23,6 +34,17 @@ function Upload({ handleUpload, ocrSuccess, uploadLoading }) {
 
   return (
     <Fragment>
+      <ToastContainer
+        position='top-center'
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
       {uploadLoading ? (
         <div className='homepage-main-dropzone'>
           <Typography variant='h6' className='animated-dots'>
